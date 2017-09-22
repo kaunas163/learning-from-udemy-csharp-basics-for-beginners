@@ -28,7 +28,34 @@ namespace _6_1
              * supplying a name). Depending on the number of names provided,
              * display a message based on the above pattern. */
 
+            var names = new List<string>();
+            string input;
 
+            do
+            {
+                Console.WriteLine("Enter name or press enter to exit");
+                input = Console.ReadLine();
+                if (!string.IsNullOrEmpty(input))
+                {
+                    names.Add(input);
+                    continue;
+                }
+                break;
+            } while (true);
+
+            switch (names.Count)
+            {
+                case 0: break;
+                case 1:
+                    Console.WriteLine("{0} likes your post.", names.First());
+                    break;
+                case 2:
+                    Console.WriteLine("{0} and {1} like your post.", names[0], names[1]);
+                    break;
+                default:
+                    Console.WriteLine("{0}, {1} and {2} others like your post.", names[0], names[1], names.Count - 2);
+                    break;
+            }
         }
     }
 }
