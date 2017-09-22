@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,17 @@ namespace _8_4
              * "NumberOfStudents".  */
 
             Console.WriteLine("Write some words separated by a space");
-            var input = Console.ReadLine();
+            var input = Console.ReadLine().ToLower();
+            
+            var splitted_words = input.Split(' ');
+            string result = "";
 
+            foreach (var word in splitted_words)
+            {
+                result += char.ToUpper(word[0]) + word.Substring(1);
+            }
+
+            Console.WriteLine("PascalCase: " + result);
         }
     }
 }
